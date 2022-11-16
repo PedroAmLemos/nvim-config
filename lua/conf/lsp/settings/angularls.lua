@@ -12,4 +12,3 @@ lspconfig["angularls"].setup({
     new_config.cmd = cmd
   end,
 })
-
