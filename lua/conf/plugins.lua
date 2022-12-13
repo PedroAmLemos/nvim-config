@@ -51,6 +51,9 @@ return packer.startup(function(use)
   use "nvim-lualine/lualine.nvim"
   use "goolord/alpha-nvim"
 
+  -- Git
+  use "lewis6991/gitsigns.nvim"
+
   -- Telescope
   use "nvim-telescope/telescope.nvim"
   use "nvim-telescope/telescope-ui-select.nvim"
