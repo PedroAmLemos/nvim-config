@@ -67,6 +67,11 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/nvim-cmp'
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
+  use 'mfussenegger/nvim-dap'
+  use 'jose-elias-alvarez/null-ls.nvim'
+
 
   use "mfussenegger/nvim-jdtls"
 
