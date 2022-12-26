@@ -1,0 +1,4 @@
+.stylua.toml
+.luarc.json
+lsp.old/
+plugin/packer_compiled.lua
