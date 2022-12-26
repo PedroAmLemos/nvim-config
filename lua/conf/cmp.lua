@@ -51,7 +51,7 @@ cmp.setup {
       luasnip.lsp_expand(args.body) -- For `luasnip` users.
     end,
   },
-  mapping = cmp.mapping.preset.insert({
+  mapping = cmp.mapping.preset.insert {
     -- ["<C-k>"] = cmp.mapping.select_prev_item(),
     -- ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-k>"] = cmp.mapping.scroll_docs(-1),
@@ -83,7 +83,7 @@ cmp.setup {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-  }),
+  },
   formatting = {
 
     fields = { "abbr", "menu", "kind" },
@@ -121,7 +121,6 @@ cmp.setup {
   },
   experimental = {
     ghost_text = false,
---    native_menu = false,
+    --    native_menu = false,
   },
-
 }

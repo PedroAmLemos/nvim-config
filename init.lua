@@ -1,7 +1,7 @@
 -- requires
 require "conf.options"
 require "conf.plugins"
-require "conf.colorscheme"
+require 'conf.colorscheme'
 require "conf.remaps"
 require "conf.nvim-tree"
 require "conf.bufferline"

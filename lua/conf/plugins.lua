@@ -71,6 +71,8 @@ return packer.startup(function(use)
   use 'williamboman/mason-lspconfig.nvim'
   use 'mfussenegger/nvim-dap'
   use 'jose-elias-alvarez/null-ls.nvim'
+  use 'folke/neodev.nvim'
+  use 'j-hui/fidget.nvim'
 
 
   use "mfussenegger/nvim-jdtls"
