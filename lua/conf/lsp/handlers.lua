@@ -2,7 +2,7 @@ local M = {}
 
 -- TODO: backfill this to template
 M.setup = function()
-  local icons = require "conf.icons"
+  local icons = require "lua.utils.icons"
   local signs = {
     { name = "DiagnosticSignError", text = icons.diagnostics.Error },
     { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
