@@ -5,6 +5,8 @@ local M = {
 
 function M.config()
     local telescope = require("telescope")
+    telescope.load_extension "media_files"
+    telescope.load_extension "ui-select"
     telescope.setup {
         defaults = {
             vimgrep_arguments = {
@@ -44,7 +46,6 @@ function M.config()
                 find_cmd = "rg", -- find command (defaults to `fd`)
             },
         },
-
     }
 end
 

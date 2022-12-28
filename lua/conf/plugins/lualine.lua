@@ -1,6 +1,9 @@
 local M = {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy"
+    event = "VeryLazy",
+    -- dependencies = {
+    --   "arkav/lualine-lsp-progress"
+    -- }
 }
 local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
@@ -76,7 +79,8 @@ function M.config()
     	sections = {
     		lualine_a = { branch, diagnostics },
     		lualine_b = { mode },
-    		lualine_c = {},
+    		-- lualine_c = { 'lsp_progress' },
+    		lualine_c = {  },
     		-- lualine_x = { "encoding", "fileformat", "filetype" },
     		lualine_x = { diff, spaces, "encoding", filetype },
     		lualine_y = { location },

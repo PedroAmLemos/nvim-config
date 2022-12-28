@@ -54,12 +54,6 @@ return packer.startup(function(use)
   -- Git
   use "lewis6991/gitsigns.nvim"
 
-  -- Telescope
-  use "nvim-telescope/telescope.nvim"
-  use "nvim-telescope/telescope-ui-select.nvim"
-  use 'nvim-telescope/telescope-project.nvim'
-  use "https://github.com/nvim-telescope/telescope-media-files.nvim"
-
   -- cmp lsp
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'

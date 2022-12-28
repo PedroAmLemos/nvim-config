@@ -13,9 +13,31 @@ return {
     {
         "tpope/vim-fugitive",
         lazy = false
+    },
+
+
+    -- Telescope
+    "nvim-telescope/telescope-ui-select.nvim",
+    'nvim-telescope/telescope-project.nvim',
+    "nvim-telescope/telescope-media-files.nvim",
+
+    -- Mason
+    "williamboman/mason-lspconfig.nvim",
+
+    -- Lsp Fidget
+   {
+     "j-hui/fidget.nvim",
+     event = "BufReadPre",
+     config = function()
+       require"fidget".setup()
+     end
+
+
+
     }
 
 
 
-    
+
+
 }
