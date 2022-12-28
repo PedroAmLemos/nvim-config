@@ -32,6 +32,7 @@ function M.config()
                 { "i", "c" }
             ),
             ["<c-space>"] = cmp.mapping {
+---@diagnostic disable-next-line: missing-parameter
                 i = cmp.mapping.complete(),
                 c = function(
         _ --[[fallback]]

@@ -1,11 +1,10 @@
 -- requires
 require "conf.options"
 require "conf.lazy"
-
+require "conf.remaps"
 
 -- require "conf.plugins"
 -- require 'conf.colorscheme'
--- require "conf.remaps"
 -- require "conf.nvim-tree"
 -- require "conf.bufferline"
 -- require "conf.cmp"

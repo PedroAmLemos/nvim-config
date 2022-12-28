@@ -3,14 +3,12 @@ local M = {
 }
 
 function M.setup(options)
+  local rt = require("rust-tools")
   local opts = {
     tools = { -- rust-tools options
       --   -- Automatically set inlay hints (type hints)
-      --   autoSetHints = true,
+      autoSetHints = true,
 
-      --   -- Whether to show hover actions inside the hover window
-      --   -- This overrides the default hover handler
-      --   hover_with_actions = true,
 
       --   -- how to execute terminal commands
       --   -- options right now: termopen / quickfix
@@ -44,7 +42,7 @@ function M.setup(options)
         --     only_current_line_autocmd = "CursorHold",
 
         --     -- wheter to show parameter hints with the inlay hints or not
-        --     show_parameter_hints = true,
+        show_parameter_hints = true,
 
         --     -- prefix for parameter hints
         parameter_hints_prefix = "  <-  ",
@@ -66,6 +64,9 @@ function M.setup(options)
 
         --     -- The color of the hints
         highlight = "LspCodeLens",
+      },
+      hover_actions = {
+        auto_focus = false,
       },
 
       --   hover_actions = {
@@ -107,7 +108,8 @@ function M.setup(options)
     -- -- all the opts to send to nvim-lspconfig
     -- -- these override the defaults set by rust-tools.nvim
     -- -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
-    server = options, -- rust-analyer options
+    -- rust-analyer options
+    server = options
 
     -- -- debugging stuff
     -- dap = {
@@ -119,7 +121,7 @@ function M.setup(options)
     -- },
   }
 
-  require("rust-tools").setup(opts)
+  rt.setup(opts)
 end
 
 return M

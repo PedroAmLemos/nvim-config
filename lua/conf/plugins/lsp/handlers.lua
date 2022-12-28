@@ -61,10 +61,16 @@ local function lsp_highlight_document(client)
   end
 end
 
-local function lsp_keymaps(bufnr)
+local function lsp_keymaps(bufnr, client)
   local opts = { buffer = bufnr, remap = false }
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-  vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+  if client.name == 'rust_analyzer' then
+    vim.keymap.set("n", "K", "<cmd>RustHoverActions<CR>", opts)
+    vim.keymap.set("v", "K", "<cmd>RustHoverRange<CR>", opts)
+    vim.keymap.set("n", "<leader>vcl", "<cmd>lua vim.lsp.codelens.refresh()<CR>", opts)
+  else
+    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+  end
   vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
   -- vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
   vim.keymap.set("n", "<leader>vws", require('telescope.builtin').lsp_dynamic_workspace_symbols, opts)
@@ -83,7 +89,7 @@ M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
     client.server_capabilities.document_formatting = false
   end
-  lsp_keymaps(bufnr)
+  lsp_keymaps(bufnr, client)
   if client.name == "rust_analyzer" then
     return
   end
