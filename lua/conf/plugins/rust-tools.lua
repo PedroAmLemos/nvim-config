@@ -120,6 +120,7 @@ function M.setup(options)
     -- rust-analyer options
     server = options,
     -- debugging stuff
+    rt.setup(opts)
   }
 
 end
