@@ -1,15 +1,24 @@
 local M = {
   "simrat39/rust-tools.nvim",
 }
+local extension_path = vim.env.HOME .. "/.local/share/nvim/mason/"
+local codelldb_path = extension_path .. "bin/codelldb"
+local liblldb_path = extension_path .. "packages/codelldb/extension/lldb/lib/liblldb.so"
 
 function M.setup(options)
-  local rt = require("rust-tools")
+  local rt = require "rust-tools"
   local opts = {
     tools = { -- rust-tools options
       --   -- Automatically set inlay hints (type hints)
       autoSetHints = true,
-
-
+      on_initialized = function()
+        vim.api.nvim_create_autocmd({ "BufWritePost", "BufEnter", "CursorHold", "InsertLeave" }, {
+          pattern = { "*.rs" },
+          callback = function()
+            vim.lsp.codelens.refresh()
+          end,
+        })
+      end,
       --   -- how to execute terminal commands
       --   -- options right now: termopen / quickfix
       --   executor = require("rust-tools/executors").termopen,
@@ -109,19 +118,10 @@ function M.setup(options)
     -- -- these override the defaults set by rust-tools.nvim
     -- -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
     -- rust-analyer options
-    server = options
-
-    -- -- debugging stuff
-    -- dap = {
-    --   adapter = {
-    --     type = "executable",
-    --     command = "lldb-vscode",
-    --     name = "rt_lldb",
-    --   },
-    -- },
+    server = options,
+    -- debugging stuff
   }
 
-  rt.setup(opts)
 end
 
 return M
