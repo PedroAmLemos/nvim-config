@@ -34,6 +34,9 @@ return {
   },
   "jose-elias-alvarez/typescript.nvim",
 
+  -- Lsp java
+  "mfussenegger/nvim-jdtls"
+
 
 
 

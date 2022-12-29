@@ -78,8 +78,8 @@ local config = {
     workspace_dir,
   },
 
-  on_attach = require("conf.lsp.handlers").on_attach,
-  capabilities = require("conf.lsp.handlers").capabilities,
+  on_attach = require("conf.plugins.lsp.handlers").on_attach,
+  capabilities = require("conf.plugins.lsp.handlers").capabilities,
 
   -- 💀
   -- This is the default if not provided, you can remove it. Or adjust as needed.
@@ -175,49 +175,49 @@ vim.cmd "command! -buffer JdtUpdateConfig lua require('jdtls').update_project_co
 vim.cmd "command! -buffer JdtBytecode lua require('jdtls').javap()"
 -- vim.cmd "command! -buffer JdtJshell lua require('jdtls').jshell()"
 
-local status_ok, which_key = pcall(require, "which-key")
-if not status_ok then
-  return
-end
+-- local status_ok, which_key = pcall(require, "which-key")
+-- if not status_ok then
+--   return
+-- end
 
-local opts = {
-  mode = "n", -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
-local vopts = {
-  mode = "v", -- VISUAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-
-local mappings = {
-  j = {
-    name = "Java",
-    o = { "<Cmd>lua require'jdtls'.organize_imports()<CR>", "Organize Imports" },
-    v = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "Extract Variable" },
-    c = { "<Cmd>lua require('jdtls').extract_constant()<CR>", "Extract Constant" },
-  },
-}
-
-local vmappings = {
-  j = {
-    name = "Java",
-    v = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable" },
-    c = { "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant" },
-    m = { "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method" },
-  },
-}
-
-which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)
-
+-- local opts = {
+--   mode = "n", -- NORMAL mode
+--   prefix = "<leader>",
+--   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+--   silent = true, -- use `silent` when creating keymaps
+--   noremap = true, -- use `noremap` when creating keymaps
+--   nowait = true, -- use `nowait` when creating keymaps
+-- }
+-- 
+-- local vopts = {
+--   mode = "v", -- VISUAL mode
+--   prefix = "<leader>",
+--   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+--   silent = true, -- use `silent` when creating keymaps
+--   noremap = true, -- use `noremap` when creating keymaps
+--   nowait = true, -- use `nowait` when creating keymaps
+-- }
+-- 
+-- local mappings = {
+--   j = {
+--     name = "Java",
+--     o = { "<Cmd>lua require'jdtls'.organize_imports()<CR>", "Organize Imports" },
+--     v = { "<Cmd>lua require('jdtls').extract_variable()<CR>", "Extract Variable" },
+--     c = { "<Cmd>lua require('jdtls').extract_constant()<CR>", "Extract Constant" },
+--   },
+-- }
+-- 
+-- local vmappings = {
+--   j = {
+--     name = "Java",
+--     v = { "<Esc><Cmd>lua require('jdtls').extract_variable(true)<CR>", "Extract Variable" },
+--     c = { "<Esc><Cmd>lua require('jdtls').extract_constant(true)<CR>", "Extract Constant" },
+--     m = { "<Esc><Cmd>lua require('jdtls').extract_method(true)<CR>", "Extract Method" },
+--   },
+-- }
+-- 
+-- which_key.register(mappings, opts)
+-- which_key.register(vmappings, vopts)
+-- 
 vim.cmd [[setlocal shiftwidth=4]]
 vim.cmd [[setlocal tabstop=4]]
