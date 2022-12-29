@@ -2,6 +2,7 @@
 require "conf.options"
 require "conf.lazy"
 require "conf.remaps"
+require "conf.telescope-maps"
 
 -- require "conf.plugins"
 -- require 'conf.colorscheme'
@@ -14,7 +15,6 @@ require "conf.remaps"
 -- require "conf.treesitter"
 -- require "conf.lualineO"
 -- require "conf.telescope"
--- require "conf.telescope-maps"
 -- require "conf.alpha"
 -- require "conf.autopairs"
 -- require "conf.comment"

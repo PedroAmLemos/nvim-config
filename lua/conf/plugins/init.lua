@@ -1,23 +1,22 @@
 return {
-  "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim",
+  "nvim-lua/popup.nvim",
+  "nvim-lua/plenary.nvim",
   "kyazdani42/nvim-web-devicons",
 
   {
     "famiu/bufdelete.nvim",
-    event = "BufAdd"
+    event = "BufAdd",
   },
-
 
   -- Git
   {
     "tpope/vim-fugitive",
-    lazy = false
+    lazy = false,
   },
-
 
   -- Telescope
   "nvim-telescope/telescope-ui-select.nvim",
-  'nvim-telescope/telescope-project.nvim',
+  "nvim-telescope/telescope-project.nvim",
   "nvim-telescope/telescope-media-files.nvim",
 
   -- Mason
@@ -29,16 +28,21 @@ return {
     "j-hui/fidget.nvim",
     event = "BufReadPre",
     config = function()
-      require "fidget".setup()
-    end
+      require("fidget").setup()
+    end,
   },
   "jose-elias-alvarez/typescript.nvim",
 
   -- Lsp java
-  "mfussenegger/nvim-jdtls"
+  "mfussenegger/nvim-jdtls",
 
+  -- comment
+  {
 
-
-
-
+    "numToStr/Comment.nvim",
+    event = "BufReadPre",
+    config = function()
+      require("Comment").setup()
+    end,
+  },
 }
