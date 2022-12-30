@@ -1,9 +1,10 @@
 local M = {
   "simrat39/rust-tools.nvim",
 }
-local extension_path = vim.env.HOME .. "/.local/share/nvim/mason/"
-local codelldb_path = extension_path .. "bin/codelldb"
-local liblldb_path = extension_path .. "packages/codelldb/extension/lldb/lib/liblldb.so"
+
+local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.8.1/'
+local codelldb_path = extension_path .. 'adapter/codelldb'
+local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
 
 function M.setup(options)
   local rt = require "rust-tools"
@@ -119,7 +120,11 @@ function M.setup(options)
     -- -- see https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#rust_analyzer
     -- rust-analyer options
     server = options,
-    -- debugging stuff
+    dap = {
+      adapter = {
+        adapter = require('rust-tools.dap').get_codelldb_adapter(codelldb_path, liblldb_path)
+      },
+    },
   }
   rt.setup(opts)
 
