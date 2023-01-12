@@ -1,7 +1,13 @@
 local M = {
 	"simrat39/rust-tools.nvim",
 }
+-- Update this path
+local extension_path = vim.env.HOME .. "/Builds/codelldb/extensions/"
+local codelldb_path = extension_path .. "adapter/codelldb"
+local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
+
+-- Normal setup
 function M.setup(on_attach)
 	local rt = require("rust-tools")
 	rt.setup({
@@ -107,6 +113,9 @@ function M.setup(on_attach)
 			--     -- default: true
 			--     full = true,
 			--   },
+			dap = {
+				adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+			},
 		},
 	})
 end
