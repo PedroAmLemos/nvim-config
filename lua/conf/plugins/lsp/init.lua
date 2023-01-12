@@ -62,8 +62,8 @@ function M.config()
     opts = vim.tbl_deep_extend("force", {}, options, opts or {})
     if server == "tsserver" then
       require("typescript").setup({ server = opts })
-    elseif server == "rust_analyzer" then
-      require("conf.plugins.rust-tools").setup(options)
+     elseif server == "rust_analyzer" then
+       require("conf.plugins.rust-tools").setup(handlers.on_attach)
     else
       require("lspconfig")[server].setup(opts)
     end
